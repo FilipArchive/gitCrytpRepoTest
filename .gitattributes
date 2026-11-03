@@ -1,0 +1,9 @@
+# Encrypt everything by default
+* filter=git-crypt diff=git-crypt
+# ...then exempt what git itself needs in cleartext.
+# Order matters: later lines win.
+.gitattributes !filter !diff
+.gitignore     !filter !diff
+.gitmodules    !filter !diff
+README.md      !filter !diff
+*.wav filter=lfs diff=lfs merge=lfs -text
